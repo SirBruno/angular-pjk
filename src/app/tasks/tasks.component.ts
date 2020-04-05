@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Input } from '@angular/core';
 import { tasks } from '../tasks';
 
 @Component({
@@ -8,6 +9,8 @@ import { tasks } from '../tasks';
 })
 
 export class TasksComponent implements OnInit {
+
+  @Input() priority: string[];
 
   tasks = tasks;
 
