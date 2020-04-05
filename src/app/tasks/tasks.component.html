@@ -6,7 +6,7 @@
             <h4>{{ task.name }}</h4>
             <p>{{ task.description }}</p>
             <p> {{task.id}} </p>
-            <p *ngIf="task.id === 0" > Priority: {{ priority[2] }} </p>
+            <b *ngIf="task.priority === 'high'" > IMPORTANT! </b>
         </li>
     </ul>
 </div>
