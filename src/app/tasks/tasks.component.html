@@ -1,5 +1,12 @@
 <h1>Tasks</h1>
 
-<div *ngFor="let task of tasks" >
-    {{ task.name }}
+<div *ngFor="let task of tasks">
+    <ul>
+        <li>
+            <h4>{{ task.name }}</h4>
+            <p>{{ task.description }}</p>
+            <p> {{task.id}} </p>
+            <p *ngIf="task.id === 0" > Priority: {{ priority[2] }} </p>
+        </li>
+    </ul>
 </div>
