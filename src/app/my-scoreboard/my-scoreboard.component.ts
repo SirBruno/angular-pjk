@@ -19,9 +19,12 @@ export class MyScoreboardComponent implements OnInit {
 
   homeScore() {
     this.store.dispatch(homeScore());
+    this.game$.subscribe((x) => console.log(`inside homescore ${x}`));
   }
 
   ngOnInit(): void {
+    // this increases the game's home score by 1 and logs it to the console
+    this.homeScore();
   }
 
 }
