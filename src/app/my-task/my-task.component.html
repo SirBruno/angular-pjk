@@ -1,3 +1,5 @@
 <button id="addTask" (click)="addTask()">Add task</button>
 
-<div>Current task: {{ taskName.name }}</div>
+<div>Current task: {{ task$ | async | json }}</div>
+<div>Current task: {{ (task$ | async).name }}</div>
+<div>Priority: {{ (task$ | async).priority }}</div>

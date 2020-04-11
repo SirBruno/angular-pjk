@@ -10,10 +10,10 @@ import { addTask } from '../task.actions';
 })
 export class MyTaskComponent implements OnInit {
 
-  task$: Observable<{name: string}>;
-  taskName: {name: string};
+  task$: Observable<{name: string, priority: string}>;
+  taskName: {name: string, priority: string};
 
-  constructor(private store: Store<{ task: {name: string} }>) {
+  constructor(private store: Store<{ task: {name: string, priority: string} }>) {
     this.task$ = store.pipe(select('task'));
   }
 
@@ -24,9 +24,12 @@ export class MyTaskComponent implements OnInit {
   ngOnInit() {
     console.log(this.taskName);
     this.task$.subscribe((x) => {
-      this.taskName = x
-      console.log('type of x: ' + typeof(x));
-      console.log('type of taskName: ' + typeof(this.taskName));
+      // console.log('taskname.name ' + this.taskName?.name)
+      // this.taskName.name = x.name;
+      // this.taskName.description = x.description;
+      // console.log('type of x: ' + typeof(x));
+      // console.log('type of taskName: ' + typeof(this.taskName));
+      // console.log('x.name: ' + x.name);
     });
   }
 
