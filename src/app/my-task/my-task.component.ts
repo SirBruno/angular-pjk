@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Store, select } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { addTask } from '../task.actions';
@@ -8,29 +8,17 @@ import { addTask } from '../task.actions';
   templateUrl: './my-task.component.html',
   styleUrls: ['./my-task.component.css']
 })
-export class MyTaskComponent implements OnInit {
+export class MyTaskComponent {
 
-  task$: Observable<{name: string, priority: string}>;
-  taskName: {name: string, priority: string};
+  task$: Observable<{ name: string, priority: string }>;
+  taskName: { name: string, priority: string };
 
-  constructor(private store: Store<{ task: {name: string, priority: string} }>) {
+  constructor(private store: Store<{ task: { name: string, priority: string } }>) {
     this.task$ = store.pipe(select('task'));
   }
 
   addTask() {
     this.store.dispatch(addTask());
-  }
-
-  ngOnInit() {
-    console.log(this.taskName);
-    this.task$.subscribe((x) => {
-      // console.log('taskname.name ' + this.taskName?.name)
-      // this.taskName.name = x.name;
-      // this.taskName.description = x.description;
-      // console.log('type of x: ' + typeof(x));
-      // console.log('type of taskName: ' + typeof(this.taskName));
-      // console.log('x.name: ' + x.name);
-    });
   }
 
 }
